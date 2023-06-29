@@ -1,0 +1,21 @@
+nav {
+    background: rgb(162, 218, 255);
+    background: linear-gradient(180deg, rgba(127, 204, 255, 0.308) 0%, rgba(255,255,255,1) 100%);
+    @include breakpoint-up(large) {
+        background: none;
+    }
+}
+
+.logo {
+    width: 100%;
+    text-align: center;
+    padding-top: 3%;
+    @include breakpoint-up(large){
+        text-align: left;
+        margin-top: 0;
+    }
+    & img {
+        padding: 20px 10px 10px;
+    }
+}
+

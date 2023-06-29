@@ -1,0 +1,63 @@
+.nav_pasos {
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.8125fr;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    max-width: 160px;
+    &_text {
+        margin-left: 5px;
+        padding: 5px;
+        display: grid;
+        grid-template-rows: 0.5fr .5fr;
+        &_title {
+            font-weight: bold;
+            font-size: 15px;
+        }
+        &_specific {
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+
+        }
+    }
+    &:last-child {
+        max-width: 130px;
+    }
+}
+
+.ionito {
+    display: block;
+    background-color: lightgray;
+    color: grey;
+    padding: 10px;
+    border-radius: 50%;
+    align-self: center;
+    justify-self: center;
+}
+
+.active {
+    background-color: $asociate-blue;
+    color: white;
+}
+
+.mobile {
+    margin: 4%;
+    @include breakpoint-up(medium){
+        margin:0 20%;
+    }
+    @include breakpoint-up(large){
+        display: none;
+        margin: 5%;
+    }
+}
+
+.desktop {
+    margin: 3%;
+    display: none;
+    @include breakpoint-up(large){
+        display: grid;
+    }
+}

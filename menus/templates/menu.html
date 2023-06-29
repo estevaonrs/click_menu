@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Cardápio | {% endblock %}
+{% load crispy_forms_tags %}
+
+
+{% block conteudo %}
+  <!--====== ABOUT PART START ======-->
+<br><br><br>
+  <section id="about" class="about-area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-8">
+
+                <div class="section-title text-center mt-30 pb-40">
+                  {% if user.perfil.full_name %}
+                    Bem vindo ao sistema {{ user.perfil.full_name }}.
+                  {% else %}
+                    <h4>Você precisa completar seu cadastro. Acesse os <a class="link-danger" href="{% url 'accounts:update_accounts' %}">meus dados</a> para atualizar.</h4>
+                  {% endif %}
+                  <hr>
+                    <h4 class="title wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.6s">Dê um nome ao seu cardápio</h4>
+                    <p class="text wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="1s">Agora é a hora de criar o seu cardápio, clique no botão "Criar cardápio" para adicionar um título ao seu cardápio!
+                    </p><br><br>
+                    <div class="d-flex justify-content-between">
+                      <div class="pricing-btn rounded-buttons text-center">                     
+                        <a class="main-btn rounded-three" href="{% url 'menus:create_menuname'%}">CRIAR CARDÁPIO</a>
+                      </div>
+                      <div class="pricing-btn rounded-buttons text-center">                     
+                        <a class="main-btn rounded-three" href="{% url 'menus:see_menuname'%}">VER CARDÁPIO</a>
+                      </div>
+                    </div>
+                    
+                </div> <!-- section title -->
+            </div>
+        </div> <!-- row -->
+
+    </div> <!-- container -->
+</section>
+{% endblock %}

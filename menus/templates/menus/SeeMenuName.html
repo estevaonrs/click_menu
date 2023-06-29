@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Cardápio | {% endblock %}
+{% load crispy_forms_tags %}
+
+
+{% block conteudo %}
+<!--====== ABOUT PART START ======-->
+<br><br><br>
+<section id="about" class="about-area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-8">
+
+                <div class="section-title text-center mt-30 pb-40">
+
+                    <hr>
+                    <h4 class="title wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.6s">Seu cardápio</h4>
+
+                </div> <!-- section title -->
+            </div>
+        </div> <!-- row -->
+
+    </div> <!-- container -->
+
+<a class="btn btn-success btn-floating m-1 btn-sm" href="{% url 'menus:qrcode'%}">Criar QrCode do Cardápio</button></a>
+<a class="btn btn-success btn-floating m-1 btn-sm" href="">Gerar PDF</button></a>
+        {% for post in all_menuname %}
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Titulo do cardápio: {{ post.title }} - 
+                      <a href="{% url 'menus:post_detail' post.slug %}" class="btn btn-outline-primary btn-floating m-1 btn-sm">Ver cardápio</a>
+                      
+                      <a class="btn btn-outline-danger btn-floating m-1 btn-sm" method="post" href="{% url 'menus:delete_menuname' post.slug %}">Excluir</a>
+                    </h3> 
+                </div>
+              <div class="card-body">
+                  <h3 class="card-title">Cardápio do: {{ post.title }} - <a class="btn btn-outline-success btn-floating m-1 btn-sm" href="{% url 'menus:create_menu'%}">Adicionar Itens</button></a></h3>
+                    <div class="site-heading">
+                      <p class="mb-3">Agora é a hora de adicionar itens ao seu cardápio, clique no botão 
+                          "Adicionar itens" para adicionar categorias, nomes e até mesmo fotos dos seus pratos incríveis!
+                      </p>
+                    </div>
+                  <div class="table-responsive">
+                      <table class="table table-striped" id="list-table">
+                          <thead>
+                                <tr>
+                                  <th>Categoria</th>
+                                  <th>Imagem</th>
+                                  <th>Nome</th>
+                                  <th>Valor</th>
+                                  <th>Descrição</th>
+                                  <th>Ações</th>
+                                </tr
+                          </thead>
+                          <tbody>
+                              
+                              {% for menu in menus %}
+                              <tr>
+                                  <td>{{ menu.category }}</td>
+                                  <td><img src="{{ menu.image_item.url }}" width="100"></td>
+                                  <td>{{ menu.item_name }}</td>
+                                  <td>R$ {{ menu.value|floatformat:2 }}</td>
+                                  <td>{{ menu.item_description }}</td>
+                                  <td>
+                                      <a class="btn btn-warning btn-sm" href="{% url 'menus:update_menu' pk=menu.id %}">Editar Item</a>
+                                      <a class="btn btn-danger btn-sm" method="post" href="{% url 'menus:delete_menu' pk=menu.id %}">Excluir Item</a>
+                                      
+                                  </td>
+                              </tr>
+                              {% endfor %} 
+                          </tbody>
+                        </table>  
+                  </div>
+                </div>
+            </div>
+            <br><br>     
+        {% endfor %}
+        </section>
+                                                         
+{% endblock %}
+

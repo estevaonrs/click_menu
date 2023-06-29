@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Planos | {% endblock %}
+
+
+{% block conteudo %}
+
+<br><br><br><br><br>
+ <!--====== PRINICNG STYLE EIGHT START ======-->
+
+ <section id="pricing" class="pricing-area">
+  <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-lg-6">
+              <div class="section-title text-center pb-20">
+                  <h3 class="title">Planos</h3>
+                  <p class="text">ESCOLHA SEU PLANO DE ASSINATURA PARA APROVEITAR O CLICKMENU!</p>
+              </div> <!-- section title -->
+          </div>
+      </div> <!-- row -->
+      
+      <div class="row justify-content-center">
+        {% for plan in plans %}
+        <div class="col-lg-4 col-md-7 col-sm-9">
+            <div class="pricing-style-one mt-40 wow fadeIn" data-wow-duration="1.5s" data-wow-delay="0.2s">
+                <div class="pricing-icon text-center">
+                    <img src="{% static 'assets3/images/wman.svg'%}" alt="">
+                </div>
+                <div class="pricing-header text-center">
+                    <h5 class="sub-title">{{ plan.tipo }}</h5>
+                    <p class="month"><span class="price">{{ plan.valor }}</span><br>A cada {{ plan.duracao_dias }} dias</p>
+                </div>
+                <div class="pricing-list">
+                    <ul>
+                        <li><i class="lni-check-mark-circle"></i> Carefully crafted components</li>
+                        <li><i class="lni-check-mark-circle"></i> Amazing page examples</li>
+                    </ul>
+                </div>
+                <div class="pricing-btn rounded-buttons text-center">
+                    <a class="main-btn rounded-three" href="{% url 'plans:plano_detail' plan.id %}">GET STARTED</a>
+                </div>
+            </div> <!-- pricing style one -->
+        </div>
+        {% endfor %}
+    </div> <!-- row -->
+     
+  </div> <!-- container -->
+</section>
+
+<!--====== PRINICNG STYLE EIGHT ENDS ======-->
+
+{% endblock %}

@@ -1,0 +1,83 @@
+div .cart {
+    display: none;
+    background-color: $white-sutil;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 40px 20px 20px 20px;
+    border-left: 1px solid rgba(128, 128, 128, 0.295);
+    @include breakpoint-up(large){
+        display: inline-block;
+    }
+    &_image {
+        max-width: 80%;
+        margin: 0 auto;
+        border-radius: 10px;
+        position: relative;
+        text-align: center;
+        & img {
+            border-radius: 10px;
+        }
+        &_text{
+            position: absolute;
+            background-color: rgba(78, 78, 78, 0.562);
+            padding: 5px 0px;
+            color: white;
+            top: 0;
+            left: 0;
+            width: 100%;
+            font-size: 15px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            font-weight: 700;
+        }
+    }
+    &_item {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        padding: 10px 0px;
+        &_info {
+            color: rgb(63, 63, 63);
+        }
+        &_price {
+            color: rgb(56, 56, 56);
+            justify-self: center;
+        }
+        &:last-child {
+            font-weight: bold;
+        }
+        & .total {
+            align-self: center;
+        }
+    }
+    &:last-child {
+        padding-top: 40px;
+    }
+}
+
+.total_p {
+    font-size: 24px;
+}
+.resumen_orden {
+    margin: 20px 0px;
+    @include breakpoint-up(large){
+        display: none;
+    }
+}
+
+.accordion-button::after{
+    margin-left: 0!important;
+}
+
+.dropdown_mobile {
+    background-color: $white-sutil;
+}
+
+.accordion-body {
+    background: $white-sutil;
+}
+
+.tu_compra {
+    margin: 0 auto;
+    text-align: left;
+    text-decoration: none;
+}

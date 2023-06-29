@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %} QR Code |{% endblock %}
+
+{% block conteudo %}
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="input" name="nome" class="form-control" placeholder="Nome do QR CODE">
+            </div>
+            <div class="form-group">
+                <input type="input" name="link" class="form-control" placeholder="Link">
+            </div>
+            <button type="submit"  class="btn btn-primary">Criar</button>
+        </form>
+    </div>        
+{% endblock %}

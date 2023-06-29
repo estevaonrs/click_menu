@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Cardápio | {% endblock %}
+{% load crispy_forms_tags %}
+
+
+{% block conteudo %}
+<!--====== ABOUT PART START ======-->
+<br><br><br>
+<section id="about" class="about-area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-8">
+                <div class="section-title text-center mt-30 pb-40">
+
+                    <hr>
+                    <h4 class="title wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.6s">Itens do menu</h4>
+                    <br><br>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form|crispy}}
+                        <br>
+                        <button class="btn btn-success" type="submit">Salvar</button>
+                        <a class="btn btn-danger" href="{% url 'menus:see_menuname' %}">Cancelar</a>
+
+
+                    </form>
+
+                </div> <!-- section title -->
+            </div>
+        </div> <!-- row -->
+
+    </div> <!-- container -->
+</section>
+{% endblock %}

@@ -1,0 +1,73 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #426bff;
+}
+::-webkit-scrollbar-track {
+  background: #919191;
+  border: 0px none #ffffff;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #919191;
+}
+::-webkit-scrollbar-track:active {
+  background: #ffffff;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+    @include breakpoint-up(large){
+      background: linear-gradient(135deg, #172a74, #21a9af)!important;
+    }
+    
+}
+
+.the_whole {
+    @include breakpoint-up(large){
+        display: grid;
+        grid-template-columns: 3fr 1.75fr;
+        background-color: white;
+        margin: 1% 1% 4%;
+        border-radius: 10px 10px 10px 10px;
+        max-width: 1250px;
+        margin: 0 auto;
+        margin-top: 1%;
+        box-shadow: 0 2.8px 2.2px rgba(185, 185, 185, 0.034),
+        0 6.7px 5.3px rgba(185, 185, 185, 0.034),
+        0 12.5px 10px rgba(185, 185, 185, 0.034),
+        0 22.3px 17.9px rgba(185, 185, 185, 0.034),
+        0 41.8px 33.4px rgba(185, 185, 185, 0.034),
+        0 100px 80px rgba(185, 185, 185, 0.034);
+    }
+}

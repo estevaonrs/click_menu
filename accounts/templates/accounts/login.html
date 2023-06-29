@@ -1,0 +1,122 @@
+{% load crispy_forms_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="content-language" content="pt-br" />
+  <meta name="robots" content="index, follow" />
+
+  <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+    <![endif]-->
+
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/css/boot.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/css/magnific-popup.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/css/fonts-icones.css' %}">
+  <link rel="shortcut icon" href="img/favicon.png" type="image/ico" />
+
+  <title>Click Menu | Seu cardápio digital</title>
+
+  <style>
+    .login-container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .login-container h4 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .login-container form {
+      margin-bottom: 20px;
+    }
+
+    .login-container button[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .login-container button[type="submit"]:hover {
+      background-color: #222;
+    }
+
+    .login-container a {
+      display: block;
+      text-align: center;
+      color: #000;
+      text-decoration: none;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <header class="main_header container">
+
+    <div class="content">
+
+      <div class="main_header_logo">
+        <a href="/" title="Restaurante Serve Bem"><img src="{% static 'assets/img/logo.png' %}"
+            alt="Restaurante Serve Bem" title="Restaurante Serve Bem" /></a>
+      </div>
+
+      <div class="icon icon-menu mobile_action"></div>
+
+      <ul class="main_header_nav" id="top">
+
+        <li class="main_header_nav_item"><a href="/" class="scrollSuave" title="Início">
+            Início</a></li>
+
+        <li class="main_header_nav_item"><a href="{% url 'accounts:login' %}" class="scrollSuave" title="Contato">
+            Login</a>
+        </li>
+        <li class="main_header_nav_item"><a href="{% url 'accounts:create_accounts' %}" class="scrollSuave"
+            title="Contato"> Cadastre-se</a>
+        </li>
+
+      </ul>
+
+      <div class="clear"></div>
+
+    </div>
+
+  </header>
+
+  <main class="main_content container">
+    <div class="login-container">
+      <h4>Logar</h4>
+      <form action="" method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit">Entrar</button>
+        <a href="{% url 'accounts:resetPassword' %}">Esqueceu a senha?</a>
+      </form>
+    </div>
+  </main>
+
+  <script src="{% static 'assets/js/jquery.js' %}"></script>
+  <script src="{% static 'assets/js/scripts.js' %}"></script>
+  <script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+
+</body>
+
+</html>
